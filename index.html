@@ -10,9 +10,11 @@
 
   <script>
     const now = new Date();
-    const jst = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Tokyo" }));
-    const formatted = jst.toISOString().replace("T", " ").substring(0, 19);
-    const month = jst.getMonth() + 1;
+    now.setHours(now.getHours() + 9); // JST対応
+
+    const formatted = now.toISOString().replace("T", " ").substring(0, 19);
+    const month = now.getMonth() + 1;
+
     document.getElementById("japan-time").textContent = `CurrentJST: ${formatted}`;
     document.getElementById("current-month").textContent = `CurrentMonth: ${month}`;
   </script>
