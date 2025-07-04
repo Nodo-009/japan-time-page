@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>日本時間API</title>
+</head>
+<body>
+  <h1 id="japan-time"></h1>
+  <p id="current-month"></p>
+
+  <script>
+    const now = new Date();
+    const jst = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Tokyo" }));
+    const formatted = jst.toISOString().replace("T", " ").substring(0, 19);
+    const month = jst.getMonth() + 1;
+    document.getElementById("japan-time").textContent = `CurrentJST: ${formatted}`;
+    document.getElementById("current-month").textContent = `CurrentMonth: ${month}`;
+  </script>
+</body>
+</html>
